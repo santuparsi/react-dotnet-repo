@@ -1,0 +1,3 @@
+1.Create Studnet Component with props like studnetId,studnetName,age,std,section
+2.Crate Class Component and render multiple Student components into Class component
+Note: display student details in a table format and apply the required bootstrap css

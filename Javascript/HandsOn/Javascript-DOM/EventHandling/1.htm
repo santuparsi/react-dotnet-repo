@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //handler
+        function Greet() {
+            let n = document.getElementById('txtName');
+            let name = n.value;
+            document.getElementById('s1').innerText = 
+            'Hello ' + name;
+            document.getElementById('s1').style.color = 'red';
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>Enter Name</td>
+                <td>
+                    <input type="text" id="txtName" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Greet" onclick="Greet()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span id="s1"></span>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

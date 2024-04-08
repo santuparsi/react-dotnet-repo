@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .m1 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="m1">I am Javascript Object</p>
+    <p>Javascript is more fun to learn</p>
+    <h1 class="m1">Javascript works with HTML DOM</h1>
+    <script>
+        //return elements with class name m1
+        let items = document.getElementsByClassName('m1');
+        for (let obj of items) {
+            alert(obj.innerText)
+        }
+        //return elements p with class name m1
+        let ob = document.querySelector('p.m1');
+        alert(ob.innerText);
+    </script>
+</body>
+
+</html>

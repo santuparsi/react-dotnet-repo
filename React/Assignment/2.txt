@@ -1,0 +1,4 @@
+1. Create Book Component with properties like book_name,price,author,publisher,lang
+2. show the book details using Book Component
+3. Create Shop Componnent and display the 5 Book details
+4. Enable bootstrap and use the bootstrap css

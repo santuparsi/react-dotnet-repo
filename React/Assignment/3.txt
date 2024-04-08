@@ -1,0 +1,6 @@
+1. Create an Employee component
+2. Create an employees array with sample employees(id,name,salary,designation)
+3. Bind employees details to table using map fun()
+4. create a UI for add new employee with in Employee Component
+5. when user click submit button new employee details are added to the below table with exsisting employee details
+Note: use dropdown for designation and use bootstrap

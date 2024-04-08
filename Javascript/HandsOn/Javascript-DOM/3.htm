@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Javascript is Object based</p>
+    <p>Javascript is Loosly typed</p>
+    <script>
+        let items = document.getElementsByTagName('p');
+        //set red color to 1st p
+        items[0].style.color = 'red';
+        items[0].innerText = 'Object Oriendted';
+        for (let item of items) {
+            alert(item.innerText);
+        }
+    </script>
+</body>
+
+</html>

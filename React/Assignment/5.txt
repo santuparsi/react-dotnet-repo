@@ -1,0 +1,5 @@
+1.Create a Friens Component
+2.Create a Frinds state with some initial friends
+3.display the frinds in a table form 
+4. ask the user enter the friend name using textbox and follwd by button
+5. when the user clicks on the button update the frinds list.

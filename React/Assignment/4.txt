@@ -1,0 +1,6 @@
+1. create array of stundets and bind the student into dropdownlist
+
+1.Create a list of book objects with(BookId,BookName,Price,Author,Lang)
+2.Create a Book component 
+3.Display the list of books in a table format
+

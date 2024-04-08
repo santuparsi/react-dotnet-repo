@@ -1,0 +1,3 @@
+1.Create a functional component Book.
+2.create a book object with props(id,name,price,author,publier,year)
+3.update the book object from the form.
