@@ -1,16 +1,20 @@
-import React, { useRef } from "react";
-//useRef to focus the input
-// add a ref attribute to an element to access it directly in the DOM.
-export default function Demo1() {
-  const inputElement = useRef();
-  const focusInput = () => {
-    inputElement.current.focus();
-    console.log(inputElement.current.value);
+import React, { Fragment, useRef } from "react";
+
+const Demo1 = () => {
+  const focusPoint = useRef("Hello");
+  const onclickHandler = () => {
+    focusPoint.current.value = "The quick brown fox jumps over the lazy dog";
+    focusPoint.current.focus();
   };
   return (
-    <>
-      <input type="text" ref={inputElement} />
-      <button onClick={focusInput}>Focus Input</button>
-    </>
+    <Fragment>
+      <div>
+        <button onClick={onclickHandler}>Action</button>
+      </div>
+      <label>Click on the action button to focus and populate the text.</label>
+      <br />
+      <textarea ref={focusPoint} />
+    </Fragment>
   );
-}
+};
+export default Demo1;

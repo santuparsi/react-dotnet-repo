@@ -1,44 +1,17 @@
-import { useState } from "react";
-function Component1() {
-  const [user, setUser] = useState("Santhosh");
+import React, { useContext, createContext } from "react";
+//create a context with a default value
+const MyContext = createContext("U0001");
+const ChildComponent = () => {
+  //consume the context value using useContext
+  const contextValue = useContext(MyContext);
+  return <p>{contextValue}</p>;
+};
+const ParentComponent = () => {
   return (
-    <>
-      <h1>Hello, {user}</h1>
-      <Component2 user={user} />
-    </>
+    //update context data
+    <MyContext.Provider value="U0002">
+      <ChildComponent />
+    </MyContext.Provider>
   );
-}
-function Component2({ user }) {
-  return (
-    <>
-      <h2>Component2</h2>
-      <Component3 user={user} />
-    </>
-  );
-}
-function Component3({ user }) {
-  return (
-    <>
-      <h2>Component3</h2>
-      <Component4 user={user} />
-    </>
-  );
-}
-function Component4({ user }) {
-  return (
-    <>
-      <h2>Component4</h2>
-      <Component5 user={user} />
-    </>
-  );
-}
-function Component5({ user }) {
-  return (
-    <>
-      <h2>Component5</h2>
-      <h2>Hello {user} again!!</h2>
-    </>
-  );
-}
-
-export default Component1;
+};
+export default ParentComponent;

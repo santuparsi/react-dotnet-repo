@@ -1,35 +1,22 @@
-import React, { useRef } from "react";
+//useRef allows you to persist values between renders
+//It can be use to access a DOM elements directly
+// ex: use UseRef to track application renders
+import React, { useState, useEffect, useRef } from "react";
 
 export default function Demo3() {
-  const uname = useRef();
-  const age = useRef();
-  const onSubmit = (e) => {
-    e.preventDefault();
-    alert(`Hello ${uname.current.value} you are ${age.current.value} old!!`);
-  };
+  const [inputValue, setInputValue] = useState("");
+  const count = useRef(0);
+  useEffect(() => {
+    count.current = count.current + 1;
+  });
   return (
     <div>
-      <form>
-        <table>
-          <tr>
-            <td>Enter Name</td>
-            <td>
-              <input type="text" ref={uname} />
-            </td>
-          </tr>
-          <tr>
-            <td>Enter Age</td>
-            <td>
-              <input type="number" ref={age} />
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={2}>
-              <button onClick={onSubmit}>Submit</button>
-            </td>
-          </tr>
-        </table>
-      </form>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h1>Render Count:{count.current}</h1>
     </div>
   );
 }

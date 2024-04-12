@@ -1,18 +1,11 @@
 import React, { Fragment, useRef } from "react";
 const Demo0 = () => {
-  const focusPoint = useRef(null);
-  const onclickHandler = () => {
-    focusPoint.current.value = "The quick brown fox jumps over the lazy dog";
-    focusPoint.current.focus();
-  };
+  const msgRef = useRef("GoodMorning!!");
   return (
     <Fragment>
       <div>
-        <button onClick={onclickHandler}>Action</button>
+        <h1>{msgRef.current}</h1>
       </div>
-      <label>Click on the action button to focus and populate the text.</label>
-      <br />
-      <textarea ref={focusPoint} />
     </Fragment>
   );
 };

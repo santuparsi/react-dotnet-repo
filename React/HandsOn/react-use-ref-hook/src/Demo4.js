@@ -1,24 +1,35 @@
-//Tracking State Changes
-import { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
-function Demo4() {
-  const [inputValue, setInputValue] = useState("");
-  const previousInputValue = useRef("");
-
-  useEffect(() => {
-    previousInputValue.current = inputValue;
-  }, [inputValue]);
-
+export default function Demo4() {
+  const uname = useRef();
+  const age = useRef();
+  const onSubmit = (e) => {
+    e.preventDefault();
+    alert(`Hello ${uname.current.value} you are ${age.current.value} old!!`);
+  };
   return (
-    <>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <h2>Current Value: {inputValue}</h2>
-      <h2>Previous Value: {previousInputValue.current}</h2>
-    </>
+    <div>
+      <form>
+        <table>
+          <tr>
+            <td>Enter Name</td>
+            <td>
+              <input type="text" ref={uname} />
+            </td>
+          </tr>
+          <tr>
+            <td>Enter Age</td>
+            <td>
+              <input type="number" ref={age} />
+            </td>
+          </tr>
+          <tr>
+            <td colSpan={2}>
+              <button onClick={onSubmit}>Submit</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
   );
 }
-export default Demo4;
