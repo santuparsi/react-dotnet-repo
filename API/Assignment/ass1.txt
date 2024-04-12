@@ -1,0 +1,14 @@
+1. Create MovieAPI Project
+2. Create a Movie Model with props(Id,Name,Actor,Director,lang,ReleaseYear)
+3.Createa a MovieController and defind following actions
+  a. GetAllMovies
+  b. GetMoviesByActor(string actor)
+  c. GetMoviesByDirector(string director)
+  d. GetMoviesByYear(int year)
+  e. GetMoviesByLang(string lang)
+  f. GetMovieById(int id)
+  g. GetMovieByName(string name)
+  h. AddMovie(Movie obj)
+  i. DeleteMovieById(int id)
+  4.Test all the actions using swagger
+  5. Use List<Movies> data to perform above actions
