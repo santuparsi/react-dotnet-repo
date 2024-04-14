@@ -1,16 +1,22 @@
-import React, { useRef } from "react";
-//useRef to focus the input
-// add a ref attribute to an element to access it directly in the DOM.
+//useRef allows you to persist values between renders
+//It can be use to access a DOM elements directly
+// ex: use UseRef to track application renders
+import React, { useState, useEffect, useRef } from "react";
+
 export default function Demo2() {
-  const inputElement = useRef();
-  const focusInput = () => {
-    inputElement.current.focus();
-    console.log(inputElement.current.value);
-  };
+  const [inputValue, setInputValue] = useState("");
+  const count = useRef(0);
+  useEffect(() => {
+    count.current = count.current + 1;
+  });
   return (
-    <>
-      <input type="text" ref={inputElement} />
-      <button onClick={focusInput}>Focus Input</button>
-    </>
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h1>Render Count:{count.current}</h1>
+    </div>
   );
 }
