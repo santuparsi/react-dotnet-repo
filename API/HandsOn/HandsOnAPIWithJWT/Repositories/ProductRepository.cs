@@ -1,22 +1,16 @@
-﻿using HandsOnAPIWIthEF.Entities;
+﻿using HandsOnAPIWithJWT.Entities;
 
-namespace HandsOnAPIWIthEF.Repositories
+namespace HandsOnAPIWithJWT.Repositories
 {
     public class ProductRepository:IProductRepository
     {
         //create object to MyCotext
         private readonly MyContext context;
 
-        //Initiating Mycontext object using DI
         public ProductRepository(MyContext context)
         {
             this.context = context;
         }
-
-        //public ProductRepository()
-        //{
-        //    context = new MyContext();
-        //}
 
         public void Add(Product product)
         {

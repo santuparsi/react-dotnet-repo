@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-namespace HandsOnAPIWIthEF.Entities
+namespace HandsOnAPIWithJWT.Entities
 {
     public class MyContext:DbContext
     {
-        private IConfiguration configuration;
+        IConfiguration configuration;
 
         public MyContext(IConfiguration configuration)
         {
@@ -12,14 +12,11 @@ namespace HandsOnAPIWIthEF.Entities
 
         //add entity set
         public DbSet<Product> Products { get; set; }
-        public DbSet<Order> Orders { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
         //defind the connectionstring
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //var connection = "server=localhost;database=sampledb;user=root;password=admin";
-            //get the connection value from the appsettigs.json file
+            //var connection = "server=localhost;database=ecommdb;user=root;password=admin";
             var connection = configuration.GetConnectionString("MySqlConnection");
             optionsBuilder.UseMySql(connection, ServerVersion.AutoDetect(connection));
         }

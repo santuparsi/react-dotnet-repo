@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using HandsOnAPIWIthEF.Repositories;
-using HandsOnAPIWIthEF.Entities;
-namespace HandsOnAPIWIthEF.Controllers
+using HandsOnAPIWithJWT.Repositories;
+using HandsOnAPIWithJWT.Entities;
+using Microsoft.AspNetCore.Authorization;
+namespace HandsOnAPIWithJWT.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -10,19 +11,14 @@ namespace HandsOnAPIWIthEF.Controllers
     {
         private readonly IProductRepository _productRepository;
 
-        //initiate productRepository object using DI
         public ProductController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
 
-        //public ProductController()
-        //{
-        //    _productRepository = new ProductRepository(); //create object to productrepository class
-        //}
-
         //endpoints
         [HttpPost,Route("AddProduct")]
+        [Authorize(Roles ="Admin")]
         public IActionResult Add([FromBody]Product product)
         {
             try
@@ -36,6 +32,7 @@ namespace HandsOnAPIWIthEF.Controllers
             }
         }
         [HttpGet,Route("GetAll")]
+        [Authorize(Roles = "Admin,Customer")]
         public IActionResult GetAll()
         {
             try
@@ -49,6 +46,7 @@ namespace HandsOnAPIWIthEF.Controllers
             }
         }
         [HttpGet,Route("GetById/{id}")]
+        [Authorize(Roles = "Customer")]
         public IActionResult Get(int id)
         {
             try
@@ -62,6 +60,7 @@ namespace HandsOnAPIWIthEF.Controllers
             }
         }
         [HttpPut,Route("Edit")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Edit([FromBody] Product product)
         {
             try
@@ -75,6 +74,7 @@ namespace HandsOnAPIWIthEF.Controllers
             }
         }
         [HttpDelete,Route("DeleteProduct/{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             _productRepository.Delete(id);

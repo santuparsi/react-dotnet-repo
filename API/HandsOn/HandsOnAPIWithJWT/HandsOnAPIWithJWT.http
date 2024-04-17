@@ -1,0 +1,6 @@
+@HandsOnAPIWithJWT_HostAddress = http://localhost:5263
+
+GET {{HandsOnAPIWithJWT_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,8 +1,8 @@
 
-using HandsOnAPIWIthEF.Entities;
-using HandsOnAPIWIthEF.Repositories;
+using DependencyInjectionAndServiceLifetimes.Interfaces;
+using DependencyInjectionAndServiceLifetimes.Services;
 
-namespace HandsOnAPIWIthEF
+namespace HandsOnDependencyInjection_Demo
 {
     public class Program
     {
@@ -11,16 +11,9 @@ namespace HandsOnAPIWIthEF
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            //Add services to Dependency Injection Container
-            builder.Services.AddTransient<IProductRepository,ProductRepository>();
-            builder.Services.AddDbContext<MyContext>();
-            builder.Services.AddCors(c =>
-            c.AddPolicy("AllowOrigin", options =>
-            options.AllowAnyOrigin() ////it allows any clinet server url
-            .AllowAnyMethod() // allow any http methods like(get, post,put,delete)
-            .AllowAnyHeader() //allow any headers like accept header and authrozie header
-            )
-            );
+            builder.Services.AddTransient<ExampleTransientService>();
+            builder.Services.AddScoped<IExampleScopedService, ExampleScopedService>();
+            builder.Services.AddSingleton<IExampleSingletonService, ExampleSingletonService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -34,7 +27,7 @@ namespace HandsOnAPIWIthEF
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseCors("AllowOrigin");
+
             app.UseAuthorization();
 
 
